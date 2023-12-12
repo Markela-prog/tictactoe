@@ -8,7 +8,6 @@ def show_menu(screen):
     global chosen_size, chosen_symbol
     font = pygame.font.Font(None, 36)
 
-
     size_button = pygame.Rect(150, 200, 300, 50)
     symbol_button = pygame.Rect(150, 300, 300, 50)
     start_button = pygame.Rect(150, 400, 300, 50)
@@ -17,7 +16,6 @@ def show_menu(screen):
     symbol_text = font.render(f"Choose Symbol: {chosen_symbol}", True, (0, 0, 0))
     start_text = font.render("Start Game", True, (0, 0, 0))
 
-
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -25,7 +23,6 @@ def show_menu(screen):
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = event.pos
-
                 if size_button.collidepoint(mouse_pos):
                     if chosen_size in [3,4]:
                         chosen_size += 1
@@ -51,5 +48,3 @@ def show_menu(screen):
         screen.blit(start_text, (start_button.x + 10, start_button.y + 10))
 
         pygame.display.flip()
-
-

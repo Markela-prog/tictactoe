@@ -40,6 +40,10 @@ def get_nickname(screen):
 
         screen.fill((255, 255, 255))
 
+        # Draw label for input
+        label_text = font.render("Please enter your name:", True, (0, 0, 0))
+        screen.blit(label_text, (150, 70))
+
         # Draw input box
         input_color = color_active if active else color_inactive
         pygame.draw.rect(screen, input_color, input_box)

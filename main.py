@@ -26,14 +26,24 @@ SQUARE_SIZE = WIDTH // size
 WHITE = (255, 255, 255)
 
 
+# Set the initial player for the game
+current_player = 'X'  # Default starting player
+
+if symbol == 'O':
+    current_player = 'O'  # If player chooses 'O', set 'O' as the starting player
+    # Bot makes the first move for 'O'
+    available_spots = [(i, j) for i in range(size) for j in range(size) if board[i][j] == '']
+    if available_spots:
+        bot_move = random.choice(available_spots)
+        row, col = bot_move
+        board[row][col] = 'X'  # Bot's move as 'X'
+
 # Function to draw the grid
 def draw_grid():
     for row in range(1, size):
         pygame.draw.line(screen, LINE_COLOR, (0, row * SQUARE_SIZE), (WIDTH, row * SQUARE_SIZE))
     for col in range(1, size):
         pygame.draw.line(screen, LINE_COLOR, (col * SQUARE_SIZE, 0), (col * SQUARE_SIZE, HEIGHT))
-
-
 
 # Function to draw the current state of the board
 def draw_board_state():
@@ -47,7 +57,6 @@ def draw_board_state():
                 game_logic.draw_symbol(screen, row, col, board[row][col], SQUARE_SIZE)
 
     pygame.display.flip()
-
 
 # Function to show a message box
 def show_message(message):
@@ -66,8 +75,7 @@ def show_message(message):
     pygame.time.delay(2000)
 
 
-
-player_moved = False  # Flag to track the player's move
+    player_moved = False  # Flag to track the player's move
 
 # Main game loop
 while True:
@@ -95,14 +103,12 @@ while True:
                     current_player = 'X' if sum(row.count('X') for row in board) <= sum(
                         row.count('O') for row in board) else 'O'
 
-
-
                 # Update the board
                 board[clicked_row][clicked_col] = current_player
 
-
                 # Check for a win
                 if game_logic.check_win(board):
+
 
                     if current_player == symbol:
                         current_date = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -190,8 +196,5 @@ while True:
                         board = game_logic.initialize_board(size)
                         SQUARE_SIZE = WIDTH // size
                         continue  # Restart the game loop with the new settings
-
-
-
 
     draw_board_state()

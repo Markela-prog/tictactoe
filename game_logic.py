@@ -19,6 +19,7 @@ def check_win(board):
 
     def check_line(line):
         for i in range(len(line) - win_length + 1):
+            # Check if there are win_length consecutive symbols in the line
             if all(symbol == line[i] and symbol != '' for symbol in line[i:i+win_length]):
                 return True
         return False

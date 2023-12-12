@@ -69,3 +69,10 @@ as has won the game. They played as X. Date: 2023-12-09
 Markela has won the game. They played as X. Date: 2023-12-09
 Bot has won the game. They played as X. Date: 2023-12-09
 m has won the game. They played as X. Date: 2023-12-09
+Markela has won the game. They played as O. Date: 2023-12-12
+Markela and Bot tied the game. Date: 2023-12-12
+Markela has won the game. They played as X. Date: 2023-12-12
+as has won the game. They played as X. Date: 2023-12-12
+AS and Bot tied the game. Date: 2023-12-12
+AS has won the game. They played as X. Date: 2023-12-12
+Bot has won the game. They played as O. Date: 2023-12-12
